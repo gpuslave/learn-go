@@ -15,6 +15,7 @@ RUN CGO_ENABLED=0 go build \
     -installsuffix 'static' \
     -o /app
 
+
 FROM gcr.io/distroless/static-debian12 AS final
 LABEL maintainer="gpuslave"
 USER nonroot:nonroot

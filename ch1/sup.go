@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"slices"
 	// "go/types"
 )
@@ -103,5 +104,40 @@ func main() {
 
 		var mypers person = person{age: 30, pet: "Cat"}
 		fmt.Println(mypers)
+	}
+
+	{
+		if n := rand.Intn(10); n == 0 {
+			fmt.Println("Omg its zero")
+		} else {
+			fmt.Println("its", n)
+		}
+
+		for i := 0; i < 10; i++ {
+			fmt.Print(i)
+		}
+
+		i := 1
+		for i < 3 {
+			fmt.Println(i)
+			i++
+		}
+
+		vals := []int{2, 4, 6}
+		for i, v := range vals {
+			fmt.Println(i, v)
+		}
+
+		samples := []string{"hello", "apple_π!"}
+	outer:
+		for _, sample := range samples {
+			for i, r := range sample {
+				fmt.Println(i, r, string(r))
+				if r == 'l' {
+					continue outer
+				}
+			}
+			fmt.Println()
+		}
 	}
 }
